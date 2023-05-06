@@ -10,13 +10,13 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
     rawBody: true,
   });
-
+ 
   app.enableCors({
     origin: process.env.URL_FRONTEND,
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     credentials: true,
   });
-  app.setGlobalPrefix('api')
+ 
   app.use(
     session({
       secret: 'secret',
